@@ -1,0 +1,14 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { CtaBand } from "@/components/site-shell";
+
+export const metadata: Metadata = { title: { absolute: "Selected Digital Projects | Nexagen Nigeria" }, description: "Explore websites and digital platforms built by Nexagen for education, publishing, finance and consumer audiences.", alternates: { canonical: "/work/" }, openGraph: { title: "Selected Digital Projects | Nexagen Nigeria", description: "Explore websites and digital platforms built by Nexagen for education, publishing, finance and consumer audiences.", url: "/work/" } };
+
+export default function Page() {
+  return <>
+<section className="hero"><div className="wrap"><span className="crumb">Selected work</span><h1>Products designed around <span className="accent">real problems.</span></h1><p>Recent platforms and publishing experiences demonstrating product strategy, interface design, development and operational thinking.</p></div></section><section className="section soft"><div className="wrap grid2"><article className="case"><Image className="caseShot" src="/assets/projects/schoolkit-homepage.jpg" alt="SchoolKit homepage showing its school management dashboard" width={1348} height={926} sizes="(max-width: 900px) 100vw, 50vw" /><div className="caseBody"><small>EDUCATION TECHNOLOGY</small><h3>SchoolKit</h3><p>A multi-tenant school-management platform connecting fees, attendance, results, admissions and parent communication.</p><a href="https://schoolkit.ng">Visit project ↗</a></div></article><article className="case"><Image className="caseShot" src="/assets/projects/betgenius-homepage.jpg" alt="BetGenius football predictions homepage" width={1348} height={926} sizes="(max-width: 900px) 100vw, 50vw" /><div className="caseBody"><small>SPORTS PUBLISHING</small><h3>BetGenius</h3><p>A football analysis and predictions platform with data pipelines, scheduled generation and content-rich discovery pages.</p><a href="https://betgenius.ng">Visit project ↗</a></div></article><article className="case"><Image className="caseShot" src="/assets/projects/everydaynaira-homepage.jpg" alt="EverydayNaira Nigerian personal finance homepage" width={1348} height={926} sizes="(max-width: 900px) 100vw, 50vw" /><div className="caseBody"><small>PERSONAL FINANCE</small><h3>EverydayNaira</h3><p>A practical Nigerian financial publishing experience designed around useful, relatable money guidance.</p><a href="https://everydaynaira.com">Visit project ↗</a></div></article><article className="case pending"><div className="pendingArt">M.</div><div className="caseBody"><small>REVENUE OPERATIONS</small><h3>Momentum Desk</h3><p>A product direction connecting leads, quotes, invoices, payments and collections for growing service businesses.</p><Link href="/contact/">Discuss similar work ↗</Link></div></article></div></section>
+
+<CtaBand />
+  </>;
+}

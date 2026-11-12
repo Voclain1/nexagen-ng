@@ -1,0 +1,6 @@
+[
+  { "slug": "website-planning", "name": "Website planning", "description": "Plan, scope, budget and brief a business website in Nigeria: what drives cost, what to include and how to choose the right partner." },
+  { "slug": "platforms-automation", "name": "Platforms & automation", "description": "When a business needs a portal, marketplace, SaaS product or workflow automation instead of a website, and how to build one without over-investing." },
+  { "slug": "seo-growth", "name": "SEO & local growth", "description": "Technical SEO, local search, useful content and conversion for Nigerian businesses that want to be found and trusted online." },
+  { "slug": "e-commerce", "name": "E-commerce", "description": "Selling online in Nigeria: payments, delivery information, mobile checkout and the trust signals that turn browsers into buyers." }
+]

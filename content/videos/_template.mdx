@@ -1,0 +1,24 @@
+---
+# Copy to content/videos/<url-slug>.mdx → /videos/<url-slug>
+title: "Video title"
+description: "What viewers will learn (used in Google video results)."
+date: 2026-12-01
+author: nexagen-editorial
+category: website-planning
+tags: ["Website planning"]
+video:
+  provider: youtube          # youtube | mux | bunny | file
+  id: "YOUTUBE_VIDEO_ID"     # mux: playback ID · bunny: video GUID · file: URL to .mp4
+  duration: "12:34"
+  # thumbnail: /videos/my-thumb.jpg   # required for bunny/file/signed mux to get video rich results
+chapters:
+  - { time: "0:00", title: "Intro" }
+  - { time: "1:30", title: "Setting up" }
+transcript: true             # set when the body below contains the full transcript
+draft: true
+---
+
+Show notes and links go here. Paste the transcript under a "## Transcript" heading —
+it makes the video page indexable text and accessible.
+
+## Transcript

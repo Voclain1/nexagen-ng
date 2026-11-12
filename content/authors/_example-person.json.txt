@@ -1,0 +1,11 @@
+Copy to content/authors/<firstname-lastname>.json and fill in REAL details.
+Named experts with verifiable profiles are one of the strongest E-E-A-T signals.
+
+{
+  "name": "Full Name",
+  "role": "Lead Engineer, Nexagen",
+  "bio": "Two or three sentences: years of experience, what you've shipped, what you specialise in.",
+  "avatar": "/authors/full-name.jpg",
+  "sameAs": ["https://www.linkedin.com/in/…", "https://github.com/…", "https://x.com/…"],
+  "expertise": ["Next.js", "Technical SEO"]
+}
