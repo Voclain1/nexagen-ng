@@ -1,5 +1,5 @@
 import "server-only";
-import { siteConfig } from "./config";
+import { isProduction, siteConfig } from "./config";
 
 /**
  * Transactional email + newsletter via Resend (https://resend.com).
@@ -14,6 +14,8 @@ const from = () => process.env.EMAIL_FROM ?? `Nexagen <${siteConfig.email.hello}
 async function resend(pathname: string, body: unknown) {
   const key = process.env.RESEND_API_KEY;
   if (!key) {
+    // Never pretend an email was sent in production: the form then tells the visitor to email/WhatsApp directly.
+    if (isProduction) { console.error(`[email] RESEND_API_KEY is not set; could not send ${pathname}`); return { ok: false, dev: false }; }
     console.info(`[email:dev] ${pathname}\n${JSON.stringify(body, null, 2)}`);
     return { ok: true, dev: true };
   }

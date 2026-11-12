@@ -78,10 +78,19 @@ const fileStore: Store = {
   async setOrderStatus(reference, status) { const data = load(); const order = data.orders.find((o) => o.reference === reference); if (order) order.status = status; save(data); },
 };
 
+/** Production without a database: nobody owns anything yet, and purchases are refused (not lost). */
+const unconfiguredStore: Store = {
+  async hasEntitlement() { return false; },
+  async listEntitlements() { return []; },
+  async grant() { throw new Error("DATABASE_URL must be set in production to grant course access."); },
+  async createOrder() { throw new Error("DATABASE_URL must be set in production to take orders."); },
+  async getOrder() { return null; },
+  async setOrderStatus() {},
+};
+
 export function store(): Store {
   if (process.env.DATABASE_URL) return postgresStore;
-  if (isProduction) throw new Error("DATABASE_URL must be set in production to store orders and course access.");
-  return fileStore;
+  return isProduction ? unconfiguredStore : fileStore;
 }
 
 export const isStoreConfigured = () => Boolean(process.env.DATABASE_URL) || !isProduction;

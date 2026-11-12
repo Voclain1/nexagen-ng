@@ -5,7 +5,7 @@ import { getSession } from "@/lib/auth";
 import { absoluteUrl } from "@/lib/config";
 import { getProduct } from "@/lib/content";
 import { initializeTransaction, isPaystackConfigured } from "@/lib/paystack";
-import { store } from "@/lib/store";
+import { isStoreConfigured, store } from "@/lib/store";
 
 /** Form POST from a paid course/resource page → creates an order → redirects to Paystack. */
 export async function POST(request: NextRequest) {
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
   const session = await getSession();
   if (!session) return NextResponse.redirect(new URL(`/account/sign-in/?next=${encodeURIComponent(back)}`, request.url), 303);
   if (await store().hasEntitlement(session.email, product.productKey)) return NextResponse.redirect(new URL(back, request.url), 303);
-  if (!isPaystackConfigured()) return NextResponse.redirect(new URL(`${back}?checkout=unavailable`, request.url), 303);
+  if (!isPaystackConfigured() || !isStoreConfigured()) return NextResponse.redirect(new URL(`${back}?checkout=unavailable`, request.url), 303);
 
   const reference = `nx_${crypto.randomUUID().replace(/-/g, "")}`;
   const amount = expectedAmount(product);
